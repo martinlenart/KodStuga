@@ -49,10 +49,10 @@ namespace KodStuga1
             bOK = InsertWine(myCellar, wine3);
 
             Wine wine4 = new Wine { Year = 2008, Name = "Sierra Cantabria", Grape = GrapeVariants.Tempranillo, Region = GrapeRegions.RiberaDelDuero };
-            bOK = InsertWine(myCellar, wine3);
+            bOK = InsertWine(myCellar, wine4);
 
             Wine wine5 = new Wine { Year = 1992, Name = "Screaming Eagle", Grape = GrapeVariants.CabernetSauvignon, Region = GrapeRegions.RiberaDelDuero };
-            bOK = InsertWine(myCellar, wine3);
+            bOK = InsertWine(myCellar, wine5);
 
             PrintWines(myCellar);
 
