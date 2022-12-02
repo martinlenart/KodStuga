@@ -34,7 +34,7 @@ namespace KodStuga1
         static void Main(string[] args)
         {
 
-            const int maxNrBottles = 4;
+            const int maxNrBottles = 20;
             Wine[] myCellar = new Wine[maxNrBottles];
 
             Console.WriteLine($"My cellar can have maximum {maxNrBottles} bottles");
