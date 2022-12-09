@@ -11,17 +11,18 @@ namespace KodStuga2a
         public const int maxNrBottles = 20;
         Wine[] myCellar = new Wine[maxNrBottles];
 
+        public event EventHandler<Wine> ExpensiveWine;
         public bool InsertWine(Wine wine)
         {
             //Your code
             for (int i = 0; i < myCellar.Length; i++)
             {
-                if (myCellar[i].Year == null)
+                if (myCellar[i] == null)
                 {
-                    myCellar[i].Year = wine.Year;
-                    myCellar[i].Name = wine.Name;
-                    myCellar[i].Region = wine.Region;
-                    myCellar[i].Grape = wine.Grape;
+                    myCellar[i] = wine;
+
+                    if (wine.Price > 1000)
+                        ExpensiveWine?.Invoke(this, wine);
 
                     return true;
                 }
@@ -35,7 +36,7 @@ namespace KodStuga2a
             int c = 0;
             for (int i = 0; i < myCellar.Length; i++)
             {
-                if (myCellar[i].Year != null)
+                if (myCellar[i] != null)
                 {
                     c++;
                 }
@@ -49,7 +50,7 @@ namespace KodStuga2a
             int c = 0;
             for (int i = 0; i < myCellar.Length; i++)
             {
-                if (myCellar[i].Year != null && myCellar[i].Grape == grape)
+                if (myCellar[i] != null && myCellar[i].Grape == grape)
                 {
                     c++;
                 }
@@ -62,7 +63,7 @@ namespace KodStuga2a
             //Your code
             foreach (var item in myCellar)
             {
-                if (item.Year != null)
+                if (item != null)
                 {
                     Console.WriteLine(item);
                 }

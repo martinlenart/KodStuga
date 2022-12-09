@@ -8,6 +8,8 @@ namespace KodStuga2a
 {
     public interface IWineCellar
     {
+        public event EventHandler<Wine> ExpensiveWine;
+
         bool InsertWine(Wine wine);
         void PrintWines();
         int NrOfBottles();

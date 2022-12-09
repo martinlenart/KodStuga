@@ -16,12 +16,13 @@ namespace KodStuga2a
         Bordeaux, Burgundy, Veneto, Piedmonte, RiberaDelDuero,
         NapaValley, Puglia, Pfalz
     }
-    public struct Wine
+    public class Wine
     {
         public int? Year;                   // null = undefined
         public string Name;
         public GrapeVariants Grape;
         public GrapeRegions Region;
+        public decimal Price = 500;
 
         /// <summary>
         /// Creates a string representing the content of the Wine struct
@@ -30,7 +31,7 @@ namespace KodStuga2a
         public override string ToString()
         {
             //Your code
-            return $"Wine {Year} {Name} is made of {Grape} from {Region}";
+            return $"Wine {Year} {Name} is made of {Grape} from {Region}. Price is {Price}";
         }
     }
 }

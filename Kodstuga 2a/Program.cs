@@ -7,6 +7,9 @@
         {
 
             IWineCellar abwc = new WineCellar();
+            abwc.ExpensiveWine += WineListener1;
+            abwc.ExpensiveWine += WineListener2;
+
             Console.WriteLine($"My {nameof(abwc)} cellar can have maximum {WineCellar.maxNrBottles} bottles");
 
             Wine wine1 = new Wine { Year = 2000, Name = "Château Lafite Rothschild", Grape = GrapeVariants.CabernetSauvignon, Region = GrapeRegions.Bordeaux };
@@ -18,7 +21,7 @@
             Wine wine3 = new Wine { Year = 2005, Name = "Giuseppe Quintarelli Amarone", Grape = GrapeVariants.Corvina, Region = GrapeRegions.Veneto };
             bOK = abwc.InsertWine(wine3);
 
-            Wine wine4 = new Wine { Year = 2008, Name = "Sierra Cantabria", Grape = GrapeVariants.Tempranillo, Region = GrapeRegions.RiberaDelDuero };
+            Wine wine4 = new Wine { Year = 2008, Price = 1500,  Name = "Sierra Cantabria", Grape = GrapeVariants.Tempranillo, Region = GrapeRegions.RiberaDelDuero };
             bOK = abwc.InsertWine(wine4);
 
             Wine wine5 = new Wine { Year = 1992, Name = "Screaming Eagle", Grape = GrapeVariants.CabernetSauvignon, Region = GrapeRegions.RiberaDelDuero };
@@ -47,6 +50,16 @@
             grape = GrapeVariants.CabernetSauvignon;
             Console.WriteLine($"Nr of bottles of {grape}: {abwc1.NrOfBottles(GrapeVariants.CabernetSauvignon)}");
         }
+
+        public static void WineListener1 (object sender, Wine w)
+        {
+            Console.WriteLine($"Congrats your bought a wine that costs {w.Price:C}");
+        }
+        public static void WineListener2(object sender, Wine w)
+        {
+            Console.WriteLine($"Congrats again your bought a wine that costs {w.Price:C}");
+        }
+
     }
 }
 //Exercise
