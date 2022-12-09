@@ -49,3 +49,8 @@
         }
     }
 }
+//Exercise
+//1. ändra struct Wine till class Wine och gör de kodändringar som behövs
+//2. lägg till pris i Wine classen
+//3. lägg till en class factory för att generera slumpmässiga viner
+//4. avfyra ett event när ett vin över 500kr har skapats. Lyssna på eventet och skriv ut ett Grattis mededelande
