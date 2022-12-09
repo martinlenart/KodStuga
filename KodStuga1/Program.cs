@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace KodStuga1
+﻿namespace KodStuga2
 {
     public enum GrapeVariants
     {
@@ -16,8 +14,8 @@ namespace KodStuga1
     {
         public int? Year;                   // null = undefined
         public string Name;
-        public GrapeVariants Grape;
-        public GrapeRegions Region;
+        public GrapeVariants? Grape;
+        public GrapeRegions? Region;
 
         /// <summary>
         /// Creates a string representing the content of the Wine struct
@@ -26,9 +24,10 @@ namespace KodStuga1
         public override string ToString()
         {
             //Your code
-            return $"";
+            return $"Wine {Year} {Name} is made of {Grape} from {Region}";
         }
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -54,10 +53,16 @@ namespace KodStuga1
             Wine wine5 = new Wine { Year = 1992, Name = "Screaming Eagle", Grape = GrapeVariants.CabernetSauvignon, Region = GrapeRegions.RiberaDelDuero };
             bOK = InsertWine(myCellar, wine5);
 
+
+            Console.WriteLine();
             PrintWines(myCellar);
 
+            Console.WriteLine();
             Console.WriteLine(NrOfBottles(myCellar));
+
+            Console.WriteLine();
             Console.WriteLine(NrOfBottles(myCellar, GrapeVariants.CabernetSauvignon));
+
         }
 
         /// <summary>
@@ -69,6 +74,21 @@ namespace KodStuga1
         private static bool InsertWine(Wine[] myCellar, Wine wine)
         {
             //Your code
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+                if (myCellar[i].Year == null)
+                {
+                    myCellar[i].Year = wine.Year;
+                    myCellar[i].Name = wine.Name;
+                    myCellar[i].Region = wine.Region;
+                    myCellar[i].Grape = wine.Grape;
+
+                    //alternative
+                    myCellar[i] = wine;
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -78,6 +98,13 @@ namespace KodStuga1
         private static void PrintWines(Wine[] myCellar)
         {
             //Your code
+            foreach (var item in myCellar)
+            {
+                if (item.Year != null)
+                {
+                    Console.WriteLine(item);
+                }
+            }
         }
 
         /// <summary>
@@ -88,7 +115,17 @@ namespace KodStuga1
         private static int NrOfBottles(Wine[] myCellar)
         {
             //Your code
+            int c = 0;
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+                if (myCellar[i].Year != null)
+                {
+                    c++;
+                }
+            }
+            return c;
         }
+
 
         /// <summary>
         /// Counts the number of bottles in myCellar with a certain GrapeVariant 
@@ -99,6 +136,15 @@ namespace KodStuga1
         private static int NrOfBottles(Wine[] myCellar, GrapeVariants grape)
         {
             //Your code
+            int c = 0;
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+                if (myCellar[i].Year != null && myCellar[i].Grape == grape)
+                {
+                    c++;
+                }
+            }
+            return c;
         }
 
     }
