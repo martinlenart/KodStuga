@@ -5,7 +5,6 @@
     {
         static void Main(string[] args)
         {
-
             IWineCellar abwc = new WineCellar();
             Console.WriteLine($"My {nameof(abwc)} cellar can have maximum {WineCellar.maxNrBottles} bottles");
 
@@ -49,3 +48,9 @@
         }
     }
 }
+
+/* Exercises
+1. Implementera WineCellar och testköra koden
+2. Implementera en metod i WineCellar som svara om ett vin från en region eller druva finns i källaren
+3. Ändra Wine från struct till class
+4. Skapa ett interafce IWine och ändra Wine till IWine på relevanta ställen
