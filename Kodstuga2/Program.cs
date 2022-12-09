@@ -43,7 +43,6 @@
             abwc1.PrintWines();
 
             Console.WriteLine($"\nNr of bottles: {abwc1.NrOfBottles()}");
-            Console.WriteLine(abwc.NrOfBottles());
 
             grape = GrapeVariants.CabernetSauvignon;
             Console.WriteLine($"Nr of bottles of {grape}: {abwc1.NrOfBottles(GrapeVariants.CabernetSauvignon)}");
