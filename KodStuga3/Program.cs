@@ -29,11 +29,24 @@
                     return false;
             }).OrderByDescending(w => w.Name).ThenByDescending(w => w.Year);
 
-            //var wines = wineCellar.myCellar.OrderByDescending(w => w.Name).ThenByDescending(w=>w.Year);
+            //wines = wineCellar.myCellar.OrderByDescending(w => w.Name).ThenByDescending(w=>w.Year);
+
+            var winegroups = wineCellar.myCellar.OrderBy(w=>w.Year).GroupBy(w => w.Year);
+            foreach (var group in winegroups)
+            {
+                Console.WriteLine(group.Key);
+                foreach (var wine in group.OrderBy(w=>w.Name))
+                {
+                    Console.WriteLine($"    {wine}");
+                }
+            }
+
+            /*
             foreach (var w in wines ) 
             {
                 Console.WriteLine(w);
             }
+            */
         }
     }
 }
