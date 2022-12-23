@@ -27,11 +27,7 @@ namespace KodStuga3
         /// Creates a string representing the content of the Wine struct
         /// </summary>
         /// <returns>string that can be printed out using Console.WriteLine</returns>
-        public override string ToString()
-        {
-            //Your code
-            return $"Wine {Year} {Name} is made of {Grape} from {Region}";
-        }
+        public override string ToString() => $"Wine {Year} {Name} is made of {Grape} from {Region}";
 
         public static class Factory
         {

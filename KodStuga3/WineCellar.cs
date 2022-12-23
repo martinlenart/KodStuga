@@ -8,7 +8,7 @@ namespace KodStuga3
 {
     public class WineCellar : IWineCellar
     {
-        List<Wine> myCellar = new List<Wine>();
+        public List<Wine> myCellar = new List<Wine>();
 
         public void Add(Wine wine) => myCellar.Add(wine);
         public int NrOfBottles() => myCellar.Count;
@@ -26,16 +26,18 @@ namespace KodStuga3
             return c;
         }
 
-        public void PrintWines()
+        public override string ToString()
         {
             //Your code
+            var sRet = "";
             foreach (var item in myCellar)
             {
                 if (item.Year != null)
                 {
-                    Console.WriteLine(item);
+                    sRet += $"{item}\n";
                 }
             }
+            return sRet;
         }
 
         public static class Factory

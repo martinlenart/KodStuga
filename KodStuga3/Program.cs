@@ -5,15 +5,15 @@
     {
         static void Main(string[] args)
         {
-            IWineCellar abwc = WineCellar.Factory.CreateRandom(10);
+            WineCellar wineCellar = WineCellar.Factory.CreateRandom(10);
  
-            Console.WriteLine($"Wines in {nameof(abwc)}:");
-            abwc.PrintWines();
+            Console.WriteLine($"Wines in {nameof(wineCellar)}:");
+            Console.WriteLine(wineCellar);
 
-            Console.WriteLine($"\nNr of bottles: {abwc.NrOfBottles()}");
+            Console.WriteLine($"\nNr of bottles: {wineCellar.NrOfBottles()}");
 
             var grape = GrapeVariants.CabernetSauvignon;
-            Console.WriteLine($"Nr of bottles of {grape}: {abwc.NrOfBottles(GrapeVariants.CabernetSauvignon)}");
+            Console.WriteLine($"Nr of bottles of {grape}: {wineCellar.NrOfBottles(GrapeVariants.CabernetSauvignon)}");
         }
     }
 }
