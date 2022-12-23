@@ -13,6 +13,7 @@
 
         static void Main(string[] args)
         {
+            WineCellar.ExpensiveWine = GreatWine;
             WineCellar wineCellar = WineCellar.Factory.CreateRandom(25);
  
             Console.WriteLine($"Wines in {nameof(wineCellar)}:");
@@ -23,6 +24,7 @@
             var grape = GrapeVariants.CabernetSauvignon;
             Console.WriteLine($"Nr of bottles of {grape}: {wineCellar.NrOfBottles(GrapeVariants.CabernetSauvignon)}");
 
+            /*
             var wines = wineCellar.myCellar.Where((Wine w) =>
             {
                 if ((w.Region == GrapeRegions.Bordeaux) || (w.Region == GrapeRegions.Piedmonte))
@@ -30,9 +32,15 @@
                 else
                     return false;
             }).OrderByDescending(w => w.Name).ThenByDescending(w => w.Year);
+            */
 
-            //wines = wineCellar.myCellar.OrderByDescending(w => w.Name).ThenByDescending(w=>w.Year);
+            var wines = wineCellar.myCellar.OrderByDescending(w => w.Name).ThenByDescending(w=>w.Year);
+            foreach (var item in wines)
+            {
+                Console.WriteLine(item);
+            }
 
+            Console.WriteLine();
             var winegroups = wineCellar.myCellar.OrderBy(w=>w.Year).GroupBy(w => w.Year);
             foreach (var group in winegroups)
             {
@@ -49,11 +57,13 @@
             });
 
             var totalValue = alist.Sum(w => w.Price);
-            foreach (var w in alist) 
-            {
-                Console.WriteLine(w);
-            }
+            Console.WriteLine();
             Console.WriteLine(totalValue);
+        }
+
+        static void GreatWine (object sender, Wine e)
+        {
+            Console.WriteLine($"OOps, can I affor this wine {e}");
         }
     }
 }
