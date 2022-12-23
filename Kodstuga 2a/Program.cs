@@ -68,4 +68,4 @@
 //3. lägg till en class factory för att generera slumpmässiga viner
 //4. avfyra ett event när ett vin över 500kr har skapats. Lyssna på eventet och skriv ut ett Grattis mededelande
 //5. koda om NrOfBottles så att metoden tar en parameter av typen Func<Wine, bool> som returnerar true om en flaska ska räknas
-//6. gör om punkt 4 och 5 till att använda Lambda expressions
+//6. gör om punkt 5 till att använda Lambda expressions
