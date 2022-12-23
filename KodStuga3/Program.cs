@@ -47,11 +47,13 @@
             {
                 return new WineShort { Name = w.Name, Price = w.Price };
             });
-            
+
+            var totalValue = alist.Sum(w => w.Price);
             foreach (var w in alist) 
             {
                 Console.WriteLine(w);
             }
+            Console.WriteLine(totalValue);
         }
     }
 }
