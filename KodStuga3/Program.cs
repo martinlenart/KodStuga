@@ -5,8 +5,10 @@
     {
         class WineShort
         {
-            string Name { get; set; }   
-            decimal Price { get; set;}
+            public string Name { get; set; }   
+            public decimal Price { get; set;}
+
+            public override string ToString() => $"{Name} @ {Price:C2}";
         }
 
         static void Main(string[] args)
@@ -41,12 +43,15 @@
                 }
             }
 
-            /*
-            foreach (var w in wines ) 
+            var alist = wineCellar.myCellar.Select((Wine w) =>
+            {
+                return new WineShort { Name = w.Name, Price = w.Price };
+            });
+            
+            foreach (var w in alist) 
             {
                 Console.WriteLine(w);
             }
-            */
         }
     }
 }
