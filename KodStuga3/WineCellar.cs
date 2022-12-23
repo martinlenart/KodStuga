@@ -12,19 +12,7 @@ namespace KodStuga3
 
         public void Add(Wine wine) => myCellar.Add(wine);
         public int NrOfBottles() => myCellar.Count;
-        public int NrOfBottles(GrapeVariants grape)
-        {
-            //Your code
-            int c = 0;
-            for (int i = 0; i < myCellar.Count; i++)
-            {
-                if (myCellar[i].Grape == grape)
-                {
-                    c++;
-                }
-            }
-            return c;
-        }
+        public int NrOfBottles(GrapeVariants grape) => myCellar.Where(w => w.Grape == grape).Count();
 
         public override string ToString()
         {
