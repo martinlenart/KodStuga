@@ -3,6 +3,12 @@
 
     class Program
     {
+        class WineShort
+        {
+            string Name { get; set; }   
+            decimal Price { get; set;}
+        }
+
         static void Main(string[] args)
         {
             WineCellar wineCellar = WineCellar.Factory.CreateRandom(25);
