@@ -22,12 +22,13 @@ namespace KodStuga3
         public string Name;
         public GrapeVariants Grape;
         public GrapeRegions Region;
+        public decimal Price; 
 
         /// <summary>
         /// Creates a string representing the content of the Wine struct
         /// </summary>
         /// <returns>string that can be printed out using Console.WriteLine</returns>
-        public override string ToString() => $"Wine {Year} {Name} is made of {Grape} from {Region}";
+        public override string ToString() => $"Wine {Year} {Name} is made of {Grape} from {Region}. Price {Price:C2}";
 
         public static class Factory
         {
@@ -40,8 +41,9 @@ namespace KodStuga3
                 GrapeVariants grape = (GrapeVariants) rnd.Next((int)GrapeVariants.CabernetSauvignon, ((int)GrapeVariants.Tempranillo + 1));
                 GrapeRegions region = (GrapeRegions)rnd.Next((int)GrapeRegions.Bordeaux, ((int)GrapeRegions.Pfalz + 1));
                 int year = rnd.Next(2000, 2022);
+                decimal price = rnd.Next(50, 2000);
 
-                Wine wine = new Wine { Name = name, Grape = grape, Region = region, Year = year };
+                Wine wine = new Wine { Name = name, Grape = grape, Region = region, Year = year, Price = price };
                 return wine;
             }
         }
